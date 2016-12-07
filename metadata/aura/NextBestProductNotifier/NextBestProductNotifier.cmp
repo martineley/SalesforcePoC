@@ -1,0 +1,14 @@
+<aura:component controller="AccountNextBestProductController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="aNextBestProduct" type="Next_Best_Product__c"/>
+    <lightning:card footer="Powered by PredictionIO" iconName="custom:custom96">
+        <aura:set attribute="title">
+            <h2>Next Best Product <lightning:badge label="1"/></h2>
+        </aura:set>
+		<p class="slds-p-horizontal--small">
+            <h1 class="slds-text-heading--large slds-align--absolute-center">{!v.aNextBestProduct.Product__c}</h1>
+            <ui:outputCurrency class="slds-text-heading--medium slds-align--absolute-center" value="{!v.aNextBestProduct.Value__c}" />
+            <lightning:button label="View" class="slds-align--absolute-center" onclick="{!c.gotoRecord}" />
+        </p>
+    </lightning:card>
+</aura:component>
